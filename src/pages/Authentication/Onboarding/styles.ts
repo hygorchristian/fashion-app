@@ -32,8 +32,15 @@ export const Overlay = styled(Animated.View)`
   ${ABSOLUTE_FILL};
 `;
 
-export const Box = styled.View`
+export const FooterOverlay = styled.View`
   flex: 1;
   background-color: white;
   border-top-left-radius: 75px;
+  overflow: hidden;
+`;
+
+export const FooterContent = styled(Animated.View)`
+  flex: 1;
+  border-top-left-radius: 75px;
+  flex-direction: row;
 `;
