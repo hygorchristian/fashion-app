@@ -2,31 +2,34 @@ import styled from "styled-components/native";
 import { RectButton } from "react-native-gesture-handler";
 
 interface ButtonProps {
-  variant: "default" | "primary" | "secondary";
+  variant: "default" | "primary" | "secondary" | "transparent";
 }
 
 export const Container = styled(RectButton)<ButtonProps>`
   overflow: hidden;
   height: 50px;
   border-radius: 25px;
-  background-color: ${({ variant }) =>
+  background-color: ${({ variant, theme: { colors } }) =>
     ({
-      default: "rgba(12, 13, 52, 0.08)",
-      primary: "#2CB9B0",
-      secondary: "#2CB9B0",
+      default: colors.defaultButton,
+      primary: colors.primary,
+      secondary: colors.secondary,
+      transparent: colors.transparent,
     }[variant])};
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  width: 250px;
 `;
 
 export const Label = styled.Text<ButtonProps>`
   font-family: SFPro;
   font-size: 15px;
-  color: ${({ variant }) =>
+  color: ${({ variant, theme: { colors } }) =>
     ({
-      default: "#0C0D34",
-      primary: "white",
-      secondary: "white",
+      default: colors.textPrimary,
+      primary: colors.white,
+      secondary: colors.white,
+      transparent: colors.textPrimary,
     }[variant])};
 `;

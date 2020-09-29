@@ -3,7 +3,7 @@ import { ScrollViewProps } from "react-native";
 import Animated from "react-native-reanimated";
 
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../../../utils/dimensions";
-import { ABSOLUTE_FILL } from "../../../utils/styles";
+import { BottomRightRadius } from "../../../components/Paths";
 
 export const Container = styled.View`
   flex: 1;
@@ -11,8 +11,7 @@ export const Container = styled.View`
 `;
 
 export const Slider = styled(Animated.View)`
-  height: ${SCREEN_HEIGHT * 0.61};
-  border-bottom-right-radius: 75;
+  height: ${({ theme }) => SCREEN_HEIGHT * 0.61 + theme.radius.xl}px;
 `;
 
 export const Scroll = styled(Animated.ScrollView).attrs(<ScrollViewProps>{
@@ -22,25 +21,39 @@ export const Scroll = styled(Animated.ScrollView).attrs(<ScrollViewProps>{
   showsHorizontalScrollIndicator: false,
   bounces: false,
   scrollEventThrottle: 1,
+  disableIntervalMomentum: true,
 })``;
 
 export const Footer = styled.View`
   flex: 1;
 `;
 
-export const Overlay = styled(Animated.View)`
-  ${ABSOLUTE_FILL};
+export const Pagination = styled.View`
+  position: absolute;
+  bottom: 0;
+  height: 150px;
+  border-top-left-radius: ${({ theme }) => theme.radius.xl}px;
+  bottom: ${({ theme }) => -theme.radius.xl}px;
+  width: ${SCREEN_WIDTH}px;
+  background-color: white;
 `;
 
-export const FooterOverlay = styled.View`
-  flex: 1;
-  background-color: white;
-  border-top-left-radius: 75px;
-  overflow: hidden;
+export const PaginationContent = styled.View`
+  height: ${({ theme }) => theme.radius.xl}px;
+  width: ${SCREEN_WIDTH}px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
 `;
 
 export const FooterContent = styled(Animated.View)`
   flex: 1;
-  border-top-left-radius: 75px;
+  border-top-left-radius: ${({ theme }) => theme.radius.xl}px;
   flex-direction: row;
+`;
+
+export const Shape = styled(BottomRightRadius)`
+  position: absolute;
+  bottom: ${({ theme }) => theme.radius.xl}px;
+  right: 0px;
 `;

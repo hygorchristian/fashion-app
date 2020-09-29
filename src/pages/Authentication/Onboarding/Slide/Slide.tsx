@@ -1,17 +1,36 @@
 import React from "react";
+import { ImageRequireSource } from "react-native";
 
-import { Container, Title, TitleContainer } from "./styles";
+import {
+  Container,
+  Title,
+  TitleContainer,
+  ImageContainer,
+  Picture,
+} from "./styles";
 
 interface SlideProps {
-  label: string;
+  title: string;
   right?: boolean;
+  picture: {
+    source: ImageRequireSource;
+    width: number;
+    height: number;
+  };
 }
 
-function Slide({ label, right }: SlideProps) {
+function Slide({ title, picture, right }: SlideProps) {
   return (
     <Container>
-      <TitleContainer right={right}>
-        <Title>{label}</Title>
+      <ImageContainer>
+        <Picture
+          picture={picture}
+          source={picture.source}
+          resizeMode="contain"
+        />
+      </ImageContainer>
+      <TitleContainer isright={right}>
+        <Title>{title}</Title>
       </TitleContainer>
     </Container>
   );

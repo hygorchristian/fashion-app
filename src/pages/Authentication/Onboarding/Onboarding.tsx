@@ -1,23 +1,29 @@
 import React, { useRef } from "react";
 import {
-  useValue,
-  onScrollEvent,
   interpolateColor,
+  useScrollHandler,
 } from "react-native-redash/lib/module/v1";
-import Animated, { multiply } from "react-native-reanimated";
+import Animated, { divide, multiply } from "react-native-reanimated";
+import { Path } from "react-native-svg";
 
 import { SCREEN_WIDTH } from "../../../utils/dimensions";
+import {
+  AuthenticationRoutes,
+  StackNavigationProps,
+} from "../../../routes/Navigation";
 
 import Slide from "./Slide";
 import Subslide from "./Subslide";
+import PaginationBullet from "./PaginationBullet";
 import {
   Container,
   Slider,
   Footer,
   Scroll,
-  Overlay,
   FooterContent,
-  FooterOverlay,
+  Pagination,
+  Shape,
+  PaginationContent,
 } from "./styles";
 
 const slides = [
@@ -27,6 +33,11 @@ const slides = [
     description:
       "Confused about your outfits? Don't worry! Find the best outfit here!",
     color: "#BDE9F4",
+    picture: {
+      source: require("../../../../assets/img/1.png"),
+      width: 2513,
+      height: 3583,
+    },
   },
   {
     title: "Playful",
@@ -34,6 +45,11 @@ const slides = [
     description:
       "Hating the clothes in your wardrobe? Explore hundreds of outfit ideas",
     color: "#BAF1BE",
+    picture: {
+      source: require("../../../../assets/img/2.png"),
+      width: 2791,
+      height: 3744,
+    },
   },
   {
     title: "Excentric",
@@ -41,6 +57,11 @@ const slides = [
     description:
       "Create your individual & unique style and look amazing everyday",
     color: "#FDDDD4",
+    picture: {
+      source: require("../../../../assets/img/3.png"),
+      width: 2738,
+      height: 3244,
+    },
   },
   {
     title: "Funky",
@@ -48,52 +69,83 @@ const slides = [
     description:
       "Discover the latest trends in fashion and explore your personality",
     color: "#FDD3DC",
+    picture: {
+      source: require("../../../../assets/img/4.png"),
+      width: 1757,
+      height: 2551,
+    },
   },
 ];
 
-function Onboarding() {
+export const assets = slides.map((slide) => slide.picture.source);
+
+function Onboarding({
+  navigation,
+}: StackNavigationProps<AuthenticationRoutes, "Onboarding">) {
   const scroll = useRef<Animated.ScrollView>(null);
-  const x = useValue(0);
-  const onScroll = onScrollEvent({ x });
+  const { scrollHandler, x } = useScrollHandler();
   const backgroundColor = interpolateColor(x, {
     inputRange: slides.map((_, i) => SCREEN_WIDTH * i),
     outputRange: slides.map((s) => s.color),
   });
 
-  const handleNext = (index) => {
+  const handleNext = (index: number) => {
     scroll.current
       ?.getNode()
       .scrollTo({ x: SCREEN_WIDTH * index, animated: true });
   };
 
+  const navigateWelcome = () => {
+    navigation.navigate("Welcome");
+  };
+
   return (
     <Container>
       <Slider style={{ backgroundColor }}>
-        <Scroll ref={scroll} {...{ onScroll }}>
-          {slides.map(({ title }, index) => (
-            <Slide key={index} label={title} right={!!(index % 2)} />
+        <Scroll ref={scroll} {...scrollHandler}>
+          {slides.map(({ title, picture }, index) => (
+            <Slide key={index} right={!!(index % 2)} {...{ title, picture }} />
           ))}
         </Scroll>
-      </Slider>
-      <Footer>
-        <Overlay style={{ backgroundColor }} />
-        <FooterOverlay>
-          <FooterContent
-            style={{
-              width: SCREEN_WIDTH * slides.length,
-              transform: [{ translateX: multiply(x, -1) }],
-            }}
-          >
-            {slides.map(({ subtitle, description }, index) => (
-              <Subslide
+        <Shape />
+        <Pagination>
+          <PaginationContent>
+            {slides.map((_, index) => (
+              <PaginationBullet
                 key={index}
-                last={index === slides.length - 1}
-                onPress={() => handleNext(index + 1)}
-                {...{ subtitle, description }}
+                currentIndex={divide(x, SCREEN_WIDTH)}
+                {...{ index }}
               />
             ))}
-          </FooterContent>
-        </FooterOverlay>
+          </PaginationContent>
+        </Pagination>
+      </Slider>
+      <Footer>
+        <FooterContent
+          style={{
+            width: SCREEN_WIDTH * slides.length,
+            transform: [{ translateX: multiply(x, -1) }],
+          }}
+        >
+          {slides.map(({ subtitle, description }, index) => {
+            const last = index === slides.length - 1;
+
+            return (
+              <Subslide
+                key={index}
+                last={last}
+                onPress={() => {
+                  if (last) {
+                    navigateWelcome();
+                  } else {
+                    handleNext(index + 1);
+                  }
+                }}
+                {...{ subtitle, description }}
+              />
+            );
+          })}
+        </FooterContent>
       </Footer>
     </Container>
   );

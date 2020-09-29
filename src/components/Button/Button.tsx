@@ -3,7 +3,7 @@ import React from "react";
 import { Container, Label } from "./styles";
 
 interface ButtonProps {
-  variant: "default" | "primary" | "secondary";
+  variant: "default" | "primary" | "secondary" | "transparent";
   children: string;
   onPress: () => void;
 }

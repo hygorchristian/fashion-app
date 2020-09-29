@@ -12,7 +12,7 @@ interface SubslideProps {
 function Subslide({ subtitle, description, last, onPress }: SubslideProps) {
   return (
     <Container>
-      <Subtitle>{subtitle}</Subtitle>
+      <Subtitle size="medium">{subtitle}</Subtitle>
       <Description>{description}</Description>
       <Button variant={last ? "primary" : "default"} {...{ onPress }}>
         {last ? "Let's get started" : "Next"}
