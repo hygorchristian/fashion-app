@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   AuthenticationRoutes,
@@ -8,6 +8,8 @@ import LayoutContainer from "../../../components/LayoutContainer";
 import SocialButton from "../../../components/SocialButton";
 import Link from "../../../components/Link";
 import TextInput from "../../../components/TextInput";
+import Button from "../../../components/Button";
+import Checkbox from "../../../components/Checkbox";
 
 import {
   Footer,
@@ -17,6 +19,7 @@ import {
   TextRow,
   WelcomeTitle,
   Text,
+  LoginRow,
 } from "./styles";
 
 export const assets = [];
@@ -24,14 +27,28 @@ export const assets = [];
 function Login({
   navigation,
 }: StackNavigationProps<AuthenticationRoutes, "Login">) {
+  const [checked, setChecked] = useState(false);
+
   return (
     <LayoutContainer variant="left">
       <Content>
         <WelcomeTitle>Welcome back</WelcomeTitle>
         <Text>Use your credentials below and login to your account</Text>
-        <TextInput icon="email" placeholder="Hello" />
-        <TextInput />
-        <TextInput />
+        <TextInput icon="email" placeholder="Enter your email" />
+        <TextInput
+          icon="lock"
+          placeholder="Enter your password"
+          secureTextEntry
+        />
+        <LoginRow>
+          <Checkbox value={checked} onPress={() => setChecked(!checked)}>
+            Remember me
+          </Checkbox>
+          <Link onPress={() => null}>Forgot password</Link>
+        </LoginRow>
+        <Button onPress={() => null} variant="primary">
+          Login into your account
+        </Button>
       </Content>
       <Footer>
         <SocialRow>
@@ -41,7 +58,9 @@ function Login({
         </SocialRow>
         <TextRow>
           <AccountText variant="light">Don't have and account?</AccountText>
-          <Link onPress={() => null}>Sign Up here</Link>
+          <Link onPress={() => navigation.navigate("CreateAccount")}>
+            Sign Up here
+          </Link>
         </TextRow>
       </Footer>
     </LayoutContainer>

@@ -1,12 +1,28 @@
 import styled from "styled-components/native";
+import { ScrollViewProps } from "react-native";
 
 import Typography from "../../../components/Typography";
 import Title from "../../../components/Title";
 
-export const Content = styled.View`
+export const Content = styled.ScrollView.attrs(<ScrollViewProps>{
+  contentContainerStyle: {
+    paddingHorizontal: 35,
+    paddingBottom: 50,
+    alignItems: "center",
+  },
+  showsVerticalScrollIndicator: false,
+  bounces: false,
+})`
   flex: 1;
-  padding-horizontal: 35px;
+`;
+
+export const LoginRow = styled.View`
+  width: 100%;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  margin-bottom: 40px;
 `;
 
 export const WelcomeTitle = styled(Title)`

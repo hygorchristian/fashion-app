@@ -42,7 +42,9 @@ function Welcome({
         <Button onPress={() => navigation.navigate("Login")} variant="primary">
           Have an account? Login
         </Button>
-        <Button onPress={() => null}>Join us, it's free</Button>
+        <Button onPress={() => navigation.navigate("CreateAccount")}>
+          Join us, it's free
+        </Button>
         <Button onPress={() => null} variant="transparent">
           Forgot password?
         </Button>

@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Onboarding, { onboardAssets } from "../pages/Authentication/Onboarding";
 import Welcome, { welcomeAssets } from "../pages/Authentication/Welcome";
 import Login, { loginAssets } from "../pages/Authentication/Login";
+import CreateAccount from "../pages/Authentication/CreateAccount";
 
 import { AuthenticationRoutes } from "./Navigation";
 
@@ -15,6 +16,10 @@ function AuthenticationNavigator() {
       <AuthenticationStack.Screen name="Onboarding" component={Onboarding} />
       <AuthenticationStack.Screen name="Welcome" component={Welcome} />
       <AuthenticationStack.Screen name="Login" component={Login} />
+      <AuthenticationStack.Screen
+        name="CreateAccount"
+        component={CreateAccount}
+      />
     </AuthenticationStack.Navigator>
   );
 }

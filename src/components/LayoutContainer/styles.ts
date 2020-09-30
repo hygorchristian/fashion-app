@@ -9,7 +9,7 @@ interface VariantProps {
 }
 
 const aspectRatio = 250 / 375;
-const imageHeight = SCREEN_WIDTH * aspectRatio - 20;
+const imageHeight = SCREEN_WIDTH * aspectRatio - 50;
 
 export const Container = styled.View`
   flex: 1;

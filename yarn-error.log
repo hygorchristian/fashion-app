@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/Cellar/node/14.12.0/bin/node /usr/local/Cellar/yarn/1.22.5/libexec/bin/yarn.js add -D @types/react-native-redash
+  /usr/local/Cellar/node/14.12.0/bin/node /usr/local/Cellar/yarn/1.22.5/libexec/bin/yarn.js add -D @types/react-native-paper
 
 PATH: 
   /Users/hygordias/.zinit/polaris/sbin:/Users/hygordias/.zinit/polaris/bin:/Users/hygordias/bin:/usr/local/bin:/Users/hygordias/:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/hygordias/dev/challenges/fashion/react-native-fashion/node_modules/.bin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2freact-native-redash: Not found
+  Error: https://registry.yarnpkg.com/@types%2freact-native-paper: Not found
       at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.22.5/libexec/lib/cli.js:66988:18)
       at Request.self.callback (/usr/local/Cellar/yarn/1.22.5/libexec/lib/cli.js:140749:22)
       at Request.emit (events.js:314:20)
@@ -40,6 +40,7 @@ npm manifest:
       "ci": "yarn lint && yarn tsc"
     },
     "dependencies": {
+      "@react-native-community/checkbox": "^0.5.4",
       "@react-native-community/masked-view": "0.1.10",
       "@react-navigation/native": "^5.7.4",
       "@react-navigation/stack": "^5.9.1",
@@ -52,11 +53,14 @@ npm manifest:
       "react-dom": "16.13.1",
       "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.2.tar.gz",
       "react-native-gesture-handler": "~1.7.0",
+      "react-native-material-ripple": "^0.9.1",
+      "react-native-paper": "^4.2.0",
       "react-native-reanimated": "^1.13.1",
       "react-native-redash": "^15.4.0",
       "react-native-safe-area-context": "3.1.4",
       "react-native-screens": "~2.10.1",
       "react-native-svg": "12.1.0",
+      "react-native-vector-icons": "^7.1.0",
       "react-native-web": "~0.13.12",
       "styled-components": "^5.2.0"
     },
@@ -64,6 +68,8 @@ npm manifest:
       "@types/react": "~16.9.35",
       "@types/react-dom": "~16.9.8",
       "@types/react-native": "~0.63.2",
+      "@types/react-native-material-ripple": "^0.9.1",
+      "@types/react-native-vector-icons": "^6.4.6",
       "@types/styled-components": "^5.1.3",
       "eslint": "^7.10.0",
       "eslint-config-react-native-wcandillon": "^3.3.3",
@@ -1061,6 +1067,14 @@ Lockfile:
       lodash "^4.17.19"
       to-fast-properties "^2.0.0"
   
+  "@callstack/react-theme-provider@^3.0.5":
+    version "3.0.5"
+    resolved "https://registry.yarnpkg.com/@callstack/react-theme-provider/-/react-theme-provider-3.0.5.tgz#a173e455e9603c9c45357a3b6ace1273086527ca"
+    integrity sha512-Iec+ybWN0FvNj87sD3oWo/49edGUP0UOSdMnzCJEFJIDYr992ECIuOV89burAAh2/ibPCxgLiK6dmgv2mO/8Tg==
+    dependencies:
+      deepmerge "^3.2.0"
+      hoist-non-react-statics "^3.3.0"
+  
   "@cnakazawa/watch@^1.0.3":
     version "1.0.4"
     resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -1234,6 +1248,11 @@ Lockfile:
       "@types/istanbul-reports" "^1.1.1"
       "@types/yargs" "^15.0.0"
       chalk "^3.0.0"
+  
+  "@react-native-community/checkbox@^0.5.4":
+    version "0.5.4"
+    resolved "https://registry.yarnpkg.com/@react-native-community/checkbox/-/checkbox-0.5.4.tgz#0b16722eef46a36df80ef24dea7cc7b58a32f379"
+    integrity sha512-dKdLuaW5YoEypGqCrwAwaG5QSJMgokaoXnDwWTaqS30UE00Gnf4yVCVGxZWGVQGNW7KKhjWBbzjciDO7U9GmqQ==
   
   "@react-native-community/cli-debugger-ui@^4.9.0":
     version "4.9.0"
@@ -1482,6 +1501,22 @@ Lockfile:
     integrity sha512-ykkPQ+5nFknnlU6lDd947WbQ6TE3NNzbQAkInC2EKY1qeYdTKp7onFusmYZb+ityzx2YviqT6BXSu+LyWWJwcA==
     dependencies:
       "@types/react" "*"
+  
+  "@types/react-native-material-ripple@^0.9.1":
+    version "0.9.1"
+    resolved "https://registry.yarnpkg.com/@types/react-native-material-ripple/-/react-native-material-ripple-0.9.1.tgz#5e91d28008e1455619804288c98f30ce7e6b1290"
+    integrity sha512-AUvTlF5PDvWlMuQbZf18GH0yRuIZhBxV7Nk30CWsJRlocfuYHB3EIGVnejwWxPXhPW8bMj8h3eW/ZR6x4+rEeA==
+    dependencies:
+      "@types/react" "*"
+      "@types/react-native" "*"
+  
+  "@types/react-native-vector-icons@^6.4.6":
+    version "6.4.6"
+    resolved "https://registry.yarnpkg.com/@types/react-native-vector-icons/-/react-native-vector-icons-6.4.6.tgz#848e3b14572def56212cafbf5cb1254b445bfb41"
+    integrity sha512-lAyxNfMd5L1xZvXWsGcJmNegDf61TAp40uL6ashNNWj9W3IrDJO59L9+9inh0Y2MsEZpLTdxzVU8Unb4/0FQng==
+    dependencies:
+      "@types/react" "*"
+      "@types/react-native" "*"
   
   "@types/react-native@*", "@types/react-native@~0.63.2":
     version "0.63.22"
@@ -4398,6 +4433,51 @@ Lockfile:
     dependencies:
       p-locate "^4.1.0"
   
+  lodash._reinterpolate@^3.0.0:
+    version "3.0.0"
+    resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
+    integrity sha1-DM8tiRZq8Ds2Y8eWU4t1rG4RTZ0=
+  
+  lodash.frompairs@^4.0.1:
+    version "4.0.1"
+    resolved "https://registry.yarnpkg.com/lodash.frompairs/-/lodash.frompairs-4.0.1.tgz#bc4e5207fa2757c136e573614e9664506b2b1bd2"
+    integrity sha1-vE5SB/onV8E25XNhTpZkUGsrG9I=
+  
+  lodash.isequal@^4.5.0:
+    version "4.5.0"
+    resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
+    integrity sha1-QVxEePK8wwEgwizhDtMib30+GOA=
+  
+  lodash.isstring@^4.0.1:
+    version "4.0.1"
+    resolved "https://registry.yarnpkg.com/lodash.isstring/-/lodash.isstring-4.0.1.tgz#d527dfb5456eca7cc9bb95d5daeaf88ba54a5451"
+    integrity sha1-1SfftUVuynzJu5XV2ur4i6VKVFE=
+  
+  lodash.omit@^4.5.0:
+    version "4.5.0"
+    resolved "https://registry.yarnpkg.com/lodash.omit/-/lodash.omit-4.5.0.tgz#6eb19ae5a1ee1dd9df0b969e66ce0b7fa30b5e60"
+    integrity sha1-brGa5aHuHdnfC5aeZs4Lf6MLXmA=
+  
+  lodash.pick@^4.4.0:
+    version "4.4.0"
+    resolved "https://registry.yarnpkg.com/lodash.pick/-/lodash.pick-4.4.0.tgz#52f05610fff9ded422611441ed1fc123a03001b3"
+    integrity sha1-UvBWEP/53tQiYRRB7R/BI6AwAbM=
+  
+  lodash.template@^4.5.0:
+    version "4.5.0"
+    resolved "https://registry.yarnpkg.com/lodash.template/-/lodash.template-4.5.0.tgz#f976195cf3f347d0d5f52483569fe8031ccce8ab"
+    integrity sha512-84vYFxIkmidUiFxidA/KjjH9pAycqW+h980j7Fuz5qxRtO9pgB7MDFTdys1N7A5mcucRiDyEq4fusljItR1T/A==
+    dependencies:
+      lodash._reinterpolate "^3.0.0"
+      lodash.templatesettings "^4.0.0"
+  
+  lodash.templatesettings@^4.0.0:
+    version "4.2.0"
+    resolved "https://registry.yarnpkg.com/lodash.templatesettings/-/lodash.templatesettings-4.2.0.tgz#e481310f049d3cf6d47e912ad09313b154f0fb33"
+    integrity sha512-stgLz+i3Aa9mZgnjr/O+v9ruKZsPsndy7qPZOchbqk2cnTU1ZaldKK+v7m54WoKIyxiuMZTKT2H81F8BeAc3ZQ==
+    dependencies:
+      lodash._reinterpolate "^3.0.0"
+  
   lodash.throttle@^4.1.1:
     version "4.1.1"
     resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
@@ -5493,7 +5573,7 @@ Lockfile:
     dependencies:
       asap "~2.0.6"
   
-  prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
+  prop-types@^15.5.10, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
     version "15.7.2"
     resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
     integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -5582,6 +5662,22 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.1.tgz#645e2ffbbb49e80844bb4cbbe34a126fda1e6772"
     integrity sha512-/VbpIEp8tSNNHIvstuA3Swx610whci1Zpc9mqNkqn14DkMbw+ORviln2u0XyHG1kPvvwTNGZY6QpeFwxYaSdbQ==
   
+  react-native-material-ripple@^0.9.1:
+    version "0.9.1"
+    resolved "https://registry.yarnpkg.com/react-native-material-ripple/-/react-native-material-ripple-0.9.1.tgz#db1ad9dd7cf97011e4cd8475ae2041ade0f891cb"
+    integrity sha512-dHjARdKoGD3LXwPh2TkURabywM5BfdpKc/AHplJTfBMalhVZ2bc7iJoJmNhNnmT/TZ+B3szL6uV1mO7Pv8zNeA==
+    dependencies:
+      prop-types "^15.5.10"
+  
+  react-native-paper@^4.2.0:
+    version "4.2.0"
+    resolved "https://registry.yarnpkg.com/react-native-paper/-/react-native-paper-4.2.0.tgz#534c0f9dbeecfd73d20f1f7b1ef3df32aa2ca4b0"
+    integrity sha512-+pM8olBygXP5cdUcPRC++BPb5DvdYPN2LJFIt2eXbT0GXs7kU7nG+hFRnsxu8awt6em6gcHVVw3ajvQGEl+CIg==
+    dependencies:
+      "@callstack/react-theme-provider" "^3.0.5"
+      color "^3.1.2"
+      react-native-safe-area-view "^0.14.9"
+  
   react-native-reanimated@^1.13.1:
     version "1.13.1"
     resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.13.1.tgz#c370c32cc4d447ae896cb029bb9c6a2f7608c5b4"
@@ -5603,6 +5699,13 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-3.1.4.tgz#9b7f883a5ae8da6218d17467a350434005893602"
     integrity sha512-bXx3hqz4LovFoMnJIRGIWL2oJ/PHadXviBKvgZV9yNErtURQLJSn0yfQytVtiqslhaBMZOJwH4R6HiClyofvBg==
   
+  react-native-safe-area-view@^0.14.9:
+    version "0.14.9"
+    resolved "https://registry.yarnpkg.com/react-native-safe-area-view/-/react-native-safe-area-view-0.14.9.tgz#90ee8383037010d9a5055a97cf97e4c1da1f0c3d"
+    integrity sha512-WII/ulhpVyL/qbYb7vydq7dJAfZRBcEhg4/UWt6F6nAKpLa3gAceMOxBxI914ppwSP/TdUsandFy6lkJQE0z4A==
+    dependencies:
+      hoist-non-react-statics "^2.3.1"
+  
   react-native-screens@~2.10.1:
     version "2.10.1"
     resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-2.10.1.tgz#06d22fae87ef0ce51c616c34a199726db1403b95"
@@ -5615,6 +5718,20 @@ Lockfile:
     dependencies:
       css-select "^2.1.0"
       css-tree "^1.0.0-alpha.39"
+  
+  react-native-vector-icons@^7.1.0:
+    version "7.1.0"
+    resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-7.1.0.tgz#145487d617b2a81d395d2cf64e6e065fcab3a454"
+    integrity sha512-V2a1zJ4i+kS8O4j183gIwX14St9AxxXabxwYpFBgRhvr2NDXyFcjHDEAgrOYYlt2W57e20aN1tBDU/I+wn9WtQ==
+    dependencies:
+      lodash.frompairs "^4.0.1"
+      lodash.isequal "^4.5.0"
+      lodash.isstring "^4.0.1"
+      lodash.omit "^4.5.0"
+      lodash.pick "^4.4.0"
+      lodash.template "^4.5.0"
+      prop-types "^15.7.2"
+      yargs "^15.0.2"
   
   react-native-web@~0.13.12:
     version "0.13.14"
@@ -6993,7 +7110,7 @@ Lockfile:
       y18n "^4.0.0"
       yargs-parser "^15.0.1"
   
-  yargs@^15.1.0:
+  yargs@^15.0.2, yargs@^15.1.0:
     version "15.4.1"
     resolved "https://registry.yarnpkg.com/yargs/-/yargs-15.4.1.tgz#0d87a16de01aee9d8bec2bfbf74f67851730f4f8"
     integrity sha512-aePbxDmcYW++PaqBsJ+HYUFwCdv4LVvdnhBy78E57PIor8/OVvhMrADFFEDh8DHDFRv/O9i3lPhsENjO7QX0+A==

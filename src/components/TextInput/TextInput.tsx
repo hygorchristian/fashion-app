@@ -36,6 +36,7 @@ function TextInput({ icon, ...props }: InputProps) {
       <Input
         onFocus={() => setStatus("focus")}
         onBlur={() => setStatus("default")}
+        autoCapitalize="none"
         {...props}
       />
     </Container>

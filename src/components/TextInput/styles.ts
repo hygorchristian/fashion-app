@@ -28,6 +28,7 @@ export const Input = styled.TextInput.attrs(<TextInputProps>{
 })`
   flex: 1;
   color: #151624;
+  height: 100%;
 `;
 
 export const IconContainer = styled.View`
