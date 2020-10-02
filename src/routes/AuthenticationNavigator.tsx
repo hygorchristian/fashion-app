@@ -1,12 +1,31 @@
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  StackNavigationProp,
+} from "@react-navigation/stack";
+import { ParamListBase, RouteProp } from "@react-navigation/native";
 
 import Onboarding, { onboardAssets } from "../pages/Authentication/Onboarding";
 import Welcome, { welcomeAssets } from "../pages/Authentication/Welcome";
 import Login, { loginAssets } from "../pages/Authentication/Login";
 import CreateAccount from "../pages/Authentication/CreateAccount";
+import ResetPassword from "../pages/Authentication/ResetPassword";
 
-import { AuthenticationRoutes } from "./Navigation";
+export interface StackNavigationProps<
+  ParamList extends ParamListBase,
+  RouteName extends keyof ParamList = string
+> {
+  navigation: StackNavigationProp<ParamList, RouteName>;
+  route: RouteProp<ParamList, RouteName>;
+}
+
+export type AuthenticationRoutes = {
+  Onboarding: undefined;
+  Welcome: undefined;
+  Login: undefined;
+  CreateAccount: undefined;
+  ResetPassword: undefined;
+};
 
 const AuthenticationStack = createStackNavigator<AuthenticationRoutes>();
 
@@ -19,6 +38,10 @@ function AuthenticationNavigator() {
       <AuthenticationStack.Screen
         name="CreateAccount"
         component={CreateAccount}
+      />
+      <AuthenticationStack.Screen
+        name="ResetPassword"
+        component={ResetPassword}
       />
     </AuthenticationStack.Navigator>
   );

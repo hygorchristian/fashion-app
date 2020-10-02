@@ -11,13 +11,13 @@ interface PaginationBulletProps {
 function PaginationBullet({ currentIndex, index }: PaginationBulletProps) {
   const opacity = interpolate(currentIndex, {
     inputRange: [index - 1, index, index + 1],
-    outputRange: [0.5, 1, 0.5],
+    outputRange: [0.3, 1, 0.3],
     extrapolate: Extrapolate.CLAMP,
   });
 
   const scale = interpolate(currentIndex, {
     inputRange: [index - 1, index, index + 1],
-    outputRange: [1, 1.25, 1],
+    outputRange: [1, 1.5, 1],
     extrapolate: Extrapolate.CLAMP,
   });
 

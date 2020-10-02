@@ -4,7 +4,7 @@ import Title from "../../../components/Title";
 import {
   AuthenticationRoutes,
   StackNavigationProps,
-} from "../../../routes/Navigation";
+} from "../../../routes/AuthenticationNavigator";
 
 import {
   Container,
@@ -45,7 +45,10 @@ function Welcome({
         <Button onPress={() => navigation.navigate("CreateAccount")}>
           Join us, it's free
         </Button>
-        <Button onPress={() => null} variant="transparent">
+        <Button
+          onPress={() => navigation.navigate("ResetPassword")}
+          variant="transparent"
+        >
           Forgot password?
         </Button>
       </ContentBottom>

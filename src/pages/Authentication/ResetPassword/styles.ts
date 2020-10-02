@@ -3,6 +3,7 @@ import { ScrollViewProps } from "react-native";
 
 import Typography from "../../../components/Typography";
 import Title from "../../../components/Title";
+import ButtonBase from "../../../components/Button";
 
 export const Content = styled.ScrollView.attrs(<ScrollViewProps>{
   contentContainerStyle: {
@@ -37,19 +38,17 @@ export const Text = styled(Typography)`
   color: ${({ theme }) => theme.colors.textSecondaryLight};
 `;
 
-export const FooterContainer = styled.SafeAreaView``;
-
 export const Footer = styled.View`
   align-items: center;
   justify-content: center;
-  padding-top: 50px;
-  padding-bottom: 40px;
+  padding-top: 28px;
+  padding-bottom: 36px;
 `;
 
 export const SocialRow = styled.View`
   flex-direction: row;
   align-items: center;
-  margin-bottom: 36;
+  margin-bottom: 24px;
 `;
 
 export const TextRow = styled.View`
@@ -59,4 +58,9 @@ export const TextRow = styled.View`
 
 export const AccountText = styled(Typography)`
   margin-right: 8px;
+`;
+
+export const Button = styled(ButtonBase)`
+  margin-top: 18px;
+  margin-bottom: 30px;
 `;

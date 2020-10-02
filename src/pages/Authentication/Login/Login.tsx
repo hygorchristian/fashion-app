@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import {
   AuthenticationRoutes,
   StackNavigationProps,
-} from "../../../routes/Navigation";
+} from "../../../routes/AuthenticationNavigator";
 import LayoutContainer from "../../../components/LayoutContainer";
 import SocialButton from "../../../components/SocialButton";
 import Link from "../../../components/Link";
@@ -20,6 +20,7 @@ import {
   WelcomeTitle,
   Text,
   LoginRow,
+  FooterContainer,
 } from "./styles";
 
 export const assets = [];
@@ -44,25 +45,29 @@ function Login({
           <Checkbox value={checked} onPress={() => setChecked(!checked)}>
             Remember me
           </Checkbox>
-          <Link onPress={() => null}>Forgot password</Link>
+          <Link onPress={() => navigation.navigate("ResetPassword")}>
+            Forgot password
+          </Link>
         </LoginRow>
         <Button onPress={() => null} variant="primary">
           Login into your account
         </Button>
       </Content>
-      <Footer>
-        <SocialRow>
-          <SocialButton icon="facebook" onPress={() => null} />
-          <SocialButton icon="google" onPress={() => null} />
-          <SocialButton icon="apple" onPress={() => null} />
-        </SocialRow>
-        <TextRow>
-          <AccountText variant="light">Don't have and account?</AccountText>
-          <Link onPress={() => navigation.navigate("CreateAccount")}>
-            Sign Up here
-          </Link>
-        </TextRow>
-      </Footer>
+      <FooterContainer>
+        <Footer>
+          <SocialRow>
+            <SocialButton icon="facebook" onPress={() => null} />
+            <SocialButton icon="google" onPress={() => null} />
+            <SocialButton icon="apple" onPress={() => null} />
+          </SocialRow>
+          <TextRow>
+            <AccountText variant="light">Don't have and account?</AccountText>
+            <Link onPress={() => navigation.navigate("CreateAccount")}>
+              Sign Up here
+            </Link>
+          </TextRow>
+        </Footer>
+      </FooterContainer>
     </LayoutContainer>
   );
 }

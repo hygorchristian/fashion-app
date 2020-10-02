@@ -4,13 +4,12 @@ import {
   useScrollHandler,
 } from "react-native-redash/lib/module/v1";
 import Animated, { divide, multiply } from "react-native-reanimated";
-import { Path } from "react-native-svg";
 
 import { SCREEN_WIDTH } from "../../../utils/dimensions";
 import {
   AuthenticationRoutes,
   StackNavigationProps,
-} from "../../../routes/Navigation";
+} from "../../../routes/AuthenticationNavigator";
 
 import Slide from "./Slide";
 import Subslide from "./Subslide";

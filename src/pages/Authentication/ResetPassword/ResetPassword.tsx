@@ -5,36 +5,41 @@ import {
   StackNavigationProps,
 } from "../../../routes/AuthenticationNavigator";
 import LayoutContainer from "../../../components/LayoutContainer";
-import {
-  AccountText,
-  Footer,
-  SocialRow,
-  Text,
-  TextRow,
-  WelcomeTitle,
-} from "../Login/styles";
 import SocialButton from "../../../components/SocialButton";
 import Link from "../../../components/Link";
 import TextInput from "../../../components/TextInput";
 
-import { Content } from "./styles";
+import {
+  Content,
+  WelcomeTitle,
+  Text,
+  TextRow,
+  AccountText,
+  SocialRow,
+  Footer,
+  Button,
+} from "./styles";
 
-function CreateAccount({
+function ResetPassword({
   navigation,
-}: StackNavigationProps<AuthenticationRoutes, "CreateAccount">) {
+}: StackNavigationProps<AuthenticationRoutes, "ResetPassword">) {
   return (
-    <LayoutContainer variant="right">
+    <LayoutContainer variant="center">
       <Content>
-        <WelcomeTitle>Create account</WelcomeTitle>
-        <Text>Let’s us know what is your name, email, and your password</Text>
+        <WelcomeTitle>Forgot password?</WelcomeTitle>
+        <Text>Enter the email address associated with your account</Text>
         <TextInput icon="email" placeholder="Enter your email" />
-        <TextInput
-          icon="lock"
-          placeholder="Enter your password"
-          secureTextEntry
-        />
-        <TextInput icon="lock" placeholder="Confirm password" secureTextEntry />
+        <Button onPress={() => null} variant="primary">
+          Reset password
+        </Button>
+        <TextRow>
+          <AccountText>Don't work?</AccountText>
+          <Link onPress={() => navigation.navigate("CreateAccount")}>
+            Try another way
+          </Link>
+        </TextRow>
       </Content>
+
       <Footer>
         <SocialRow>
           <SocialButton icon="facebook" onPress={() => null} />
@@ -43,11 +48,13 @@ function CreateAccount({
         </SocialRow>
         <TextRow>
           <AccountText variant="light">Don't have and account?</AccountText>
-          <Link onPress={() => navigation.navigate("Login")}>Login here</Link>
+          <Link onPress={() => navigation.navigate("CreateAccount")}>
+            Sign Up here
+          </Link>
         </TextRow>
       </Footer>
     </LayoutContainer>
   );
 }
 
-export default CreateAccount;
+export default ResetPassword;
